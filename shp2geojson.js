@@ -20,6 +20,7 @@ glob(workingDir, {}, function (er, files) {
     for (var i in files){
       var shp_in    = files[i];
       var shpWebMer = files[i].slice(0, -4).concat("_rp.shp");
+      var tempfiles = files[i].slice(0, -4).concat("_rp*");
       var geojson   = files[i].slice(0, -4).concat(".geojson");
 
       async.series([
@@ -33,6 +34,12 @@ glob(workingDir, {}, function (er, files) {
             console.log(".....shape to geo");
             var cmd_shp2geojson = buildCmd_shp2geojson(shpWebMer,geojson);
             shell.exec(cmd_shp2geojson);    
+            next();
+          },
+          function(next){
+            console.log(".....delete temp files");
+            var cmd_removeTempFiles = "rm "+tempfiles
+            shell.exec(cmd_removeTempFiles);    
             next();
           },
           function(next){
