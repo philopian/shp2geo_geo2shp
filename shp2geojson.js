@@ -12,8 +12,6 @@ function buildCmd_shp2geojson(IN_FILE,OUT_FILE){
 }
 
 
-
-
 var workingDir = __dirname+"/data/*.shp";
 glob(workingDir, {}, function (er, files) {
   if (files.length > 0){
