@@ -1,0 +1,16 @@
+{
+  "name": "shp2geo_geo2shp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "shp2geojson.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Phil Willis <pdotwdot@gmail.com> (http://www.philwillis.pw/)",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^0.9.0",
+    "glob": "^5.0.3",
+    "shelljs": "^0.4.0"
+  }
+}
