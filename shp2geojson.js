@@ -10,3 +10,7 @@ function builCmd_shp2wm(IN_FILE,OUT_FILE){
 function buildCmd_shp2geojson(IN_FILE,OUT_FILE){
   return 'ogr2ogr -f "GeoJSON" '+OUT_FILE+' '+IN_FILE;
 }
+
+
+
+
