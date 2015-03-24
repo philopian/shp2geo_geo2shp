@@ -14,3 +14,32 @@ function buildCmd_shp2geojson(IN_FILE,OUT_FILE){
 
 
 
+var workingDir = __dirname+"/data/*.shp";
+glob(workingDir, {}, function (er, files) {
+  if (files.length > 0){
+    for (var i in files){
+      var shp_in    = files[i];
+      var shpWebMer = files[i].slice(0, -4).concat("_rp.shp");
+      var geojson   = files[i].slice(0, -4).concat(".geojson");
+
+      async.series([
+          function(next){ 
+            console.log(".....reproject shp");
+            var cmd_reproject = builCmd_shp2wm(shp_in,shpWebMer);
+            shell.exec(cmd_reproject);
+            next();
+          },
+          function(next){
+            console.log(".....shape to geo");
+            var cmd_shp2geojson = buildCmd_shp2geojson(shpWebMer,geojson);
+            shell.exec(cmd_shp2geojson);    
+            next();
+          },
+          function(next){
+            console.log("...completed: "+geojson) 
+          }
+      ]);
+
+    }//for each .shp    
+  }// if *.shp files found
+});
