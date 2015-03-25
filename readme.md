@@ -3,11 +3,11 @@
 
 # Dependencies
 
-GDAL
+1. GDAL
 
 </br>
 
-NodeJS
+2. NodeJS
 
 * You can find Mac GDAL downloads here: [Download GDAL](http://www.kyngchaos.com/software/archive#gdal) OGR and the associated utilities (i.e ogr2ogr and ogrinfo) are included with GDAL.
 
