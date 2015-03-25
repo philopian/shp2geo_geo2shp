@@ -1,7 +1,7 @@
 
-# Converts to/from shapefiles/geojson all file type in a directory
+## Converts to/from shapefiles/geojson all file type in a directory
 
-# Dependencies
+#### Dependencies
 
 1. GDAL
 
