@@ -50,5 +50,5 @@ glob(workingDir, {}, function (er, files) {
           }
       ]);
     }//loop-each-shp-file
-  }
+  }// if *.shp files found
 });
